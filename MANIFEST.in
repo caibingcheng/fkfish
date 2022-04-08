@@ -1,0 +1,2 @@
+include fkfish/*
+global-exclude *.pyc
