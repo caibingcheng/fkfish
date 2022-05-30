@@ -1,11 +1,11 @@
-#coding:utf-8
+# coding:utf-8
 
 
 from tkinter import *
 import tkinter.font as tkFont
 import threading
 import os
-import sys
+import random
 
 
 def log_printer(parent):
@@ -29,15 +29,19 @@ def log_printer(parent):
     batch = parent.winfo_screenheight() // line_height
 
     for start in range(0, len(lines) - batch):
-        textvariable.set(''.join(lines[start: start + batch]))
         new_line = lines[start: start + batch]
-        if '...' in new_line:
-            time.sleep(0.5)
-        time.sleep(0.1)
+        new_line = [
+            ' '*3 + line if line.startswith('        ') else line for line in new_line]
+        text = ''.join(new_line)
+        textvariable.set('\n' + text)
+        if text.endswith('...\n'):
+            time.sleep(max(0.01, min(random.normalvariate(0.5, 0.2), 10)))
+        else:
+            time.sleep(random.random() / 10)
 
 
 def frame_create(win):
-    frame = Frame(win)
+    frame = Frame(win, cursor='none')
     width, height = win.winfo_screenwidth(), win.winfo_screenheight()
     canvas = Canvas(frame, height=height, width=width)
     canvas.pack()
