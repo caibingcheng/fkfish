@@ -11,7 +11,7 @@
 5. 剥夺员工上厕所的权利
 6. 剥夺员工休息的权力
 
-不鼓励正常工作时间过多的摸鱼, 但是坚决反对压榨加班
+合理的摸鱼可以提高工作和学习的效率，有益身心健康，不鼓励正常工作时间过多的摸鱼, 但是坚决反对压榨加班
 
 ### 使用
 
@@ -53,15 +53,36 @@ pip3 install fkfish
 - 运行
 
 ```python
-fkfish  ## 根据不同系统，伪装成重启界面
+## 自动根据不同系统，伪装成重启界面
+fkfish
 ```
 
+Linux:
+!["Linux-Demo"](statics/fkfish_demo_0.gif) 
+
+Windows:
+!["Windows-Demo"](statics/fkfish_demo_1.gif)
+
 - 退出
-```
+```python
+## 如果设置了密码，则该热键不生效
 <ctrl + m>
 ```
 
-- 更多功能
+- windows 蓝屏
 ```python
-fkfish -m winblue  ## 伪装windows蓝屏
+## 伪装windows蓝屏
+fkfish -m winblue
 ```
+
+- 设置密码
+```python
+## <ctrl + m>失效，密码匹配后才可以退出
+fkfish -p [passwd]
+```
+
+
+### TODO
+
+- 屏蔽系统热键
+  
