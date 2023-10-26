@@ -28,6 +28,9 @@ class Module():
         if args.mode == 'winblue':
             from . import windows_blue
             return windows_blue
+        if args.mode == 'black':
+            from . import black_screen
+            return black_screen
 
         raise Exception('Unsupported system', args.mode)
 
